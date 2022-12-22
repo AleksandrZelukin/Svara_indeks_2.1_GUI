@@ -96,6 +96,7 @@ def main_logs():
       break
 
   window.close()
+  
       
 #=========================================================================== 
 # Piekļuves logs
@@ -147,5 +148,9 @@ def login(): # Ieejas logs
                   sg.popup("Invalid login. Try again")
 
     window.close()
-login()
 
+
+#login()
+if __name__ == '__main__':
+    sg.theme('DarkAmber')
+    login()
