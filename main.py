@@ -1,11 +1,10 @@
-#from cgitb import text
-#from curses import window
-#from datetime import date
 import PySimpleGUI as sg
 import sqlite3
 
 import random
 import string
+#==============================================================
+#Datu bāze izveidošana 
 
 conn = sqlite3.connect(r'veseliba.db')
 
@@ -22,6 +21,8 @@ cur.execute("""CREATE TABLE IF NOT EXISTS users(
 """)
 conn.commit()
 
+#===================================================================
+#Svara indeksa noteikšanas funkcija
 
 def calc_bmi(h,w):
     try:
@@ -39,6 +40,10 @@ def calc_bmi(h,w):
         return None
     else:
         return (f'BMI: {bmi}, {standard}')
+#==========================================================================
+#        Galvenais logs
+#
+#============================================================================      
 
 def main_logs():
   sg.theme("DarkBlue2")
@@ -92,9 +97,11 @@ def main_logs():
 
   window.close()
       
-#===========================================================================      
-username = 'A'
-password = '123'
+#=========================================================================== 
+# Piekļuves logs
+  
+username = 'Admin'
+password = 'admin'
 #PROGRESS BAR
 def progress_bar():
     sg.theme('LightBlue2')
@@ -111,10 +118,10 @@ def progress_bar():
     window.close()
 #=============================================================================
 
-def login():
+def login(): # Ieejas logs
     global username,password
     sg.theme("LightBlue2")
-    layout = [[sg.Text("Log In", size =(15, 1), font=16)],
+    layout = [[sg.Text("Log In", size =(15, 1), font=16), sg.Text("login Admin, pass: admin")],
             [sg.Text("Username", size =(15, 1), font=16),sg.InputText(key='-usrnm-', font=16)],
             [sg.Text("Password", size =(15, 1), font=16),sg.InputText(key='-pwd-', password_char='*', font=16)],
             [sg.Button('Ok'),sg.Button('Cancel')]]
