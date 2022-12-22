@@ -92,7 +92,7 @@ def main_logs():
         print('Aprēķināts BMI: ',row[6], end="\n\n")
 
     if event == sg.WINDOW_CLOSED or event == 'q':
-      print(values[1],values[2],bmi)
+      print(values['-V-'],values['-U-'],bmi)
       break
 
   window.close()
