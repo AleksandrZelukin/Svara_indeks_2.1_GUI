@@ -55,7 +55,7 @@ def main_logs():
         [sg.Button("aprēķināt BMI", key='submit')],
         [sg.Text('', key='bmi', size=(20,1))],
         [sg.Text('', key='radit',size=(40,2))],
-        [sg.Button("Saglabāt datus", key='glab'),sg.Button("Skātit dati", key='skat'),sg.Button("Beigt", key='q')]]
+        [sg.Button("Saglabāt datus", key='glab'),sg.Button("Skātit dati", key='skat'),sg.Button("Beigt", key='q'),sg.Button("Skatīt pedejo ierākstu", key='qr')]]
 
   window = sg.Window ("Calculator BMI", layot)
 
@@ -90,9 +90,10 @@ def main_logs():
         print('Augums: ',row[4])
         print('Svars: ',row[5])
         print('Aprēķināts BMI: ',row[6], end="\n\n")
-
+    if event == 'qr':
+      ieraksts=(rand_string,values['-V-'],values['-U-'],bmi)
+      print(ieraksts)
     if event == sg.WINDOW_CLOSED or event == 'q':
-      print(values['-V-'],values['-U-'],bmi)
       break
 
   window.close()
