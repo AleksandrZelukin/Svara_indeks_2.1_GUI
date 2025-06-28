@@ -1,6 +1,5 @@
 import PySimpleGUI as sg
 import sqlite3
-
 import random
 import string
 #==============================================================
